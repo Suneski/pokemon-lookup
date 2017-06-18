@@ -11,6 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/Suneski/pokemon-lookup.git"
   },
+  "engines": {
+    "node": "6.11.0"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
