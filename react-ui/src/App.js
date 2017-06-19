@@ -34,8 +34,11 @@ class App extends Component {
           onClick={() => this.pokemonSearch()}>
           SUBMIT
         </button>
-        <Pokemon
-          name={this.state.name} />
+        <div className="pokedex">
+          <Pokemon
+            className="pokemon-img"
+            name={this.state.name} />
+        </div>
       </div>
     );
   }
