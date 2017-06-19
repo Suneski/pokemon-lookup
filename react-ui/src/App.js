@@ -39,6 +39,7 @@ class App extends Component {
             className="pokemon-img"
             name={this.state.name} />
         </div>
+        <p>***not all pokemon available***</p>
       </div>
     );
   }
