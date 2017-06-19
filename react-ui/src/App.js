@@ -1,18 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Pokemon from 'react-pokemon';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: 'bulbasaur',
+      text: '',
+    }
+  }
+
+  pokemonText(evt) {
+    console.log(evt.target.value);
+    this.setState({
+      text: evt.target.value,
+    })
+  }
+
+  pokemonSearch() {
+    this.setState({
+      name: this.state.text,
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <input
+          placeholder="pokemon name"
+          onKeyUp={(evt) => this.pokemonText(evt)}/>
+        <button
+          onClick={() => this.pokemonSearch()}>
+          SUBMIT
+        </button>
+        <Pokemon
+          name={this.state.name} />
       </div>
     );
   }
