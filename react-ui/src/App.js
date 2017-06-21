@@ -23,8 +23,34 @@ class App extends Component {
   }
 
   pokemonSearch() {
+    let name = this.state.text;
+    if (this.state.text === 'deoxys') {
+      name = 'deoxys-normal'
+    }
+    if (this.state.text === 'giratina') {
+      name = 'giratina-altered'
+    }
+    if (this.state.text === 'shaymin') {
+      name = 'shaymin-land'
+    }
+    if (this.state.text === 'darmanitan') {
+      name = 'darmanitan-standard'
+    }
+    if (this.state.text === 'meloetta') {
+      name = 'meloetta-aria'
+    }
+    if (this.state.text === 'hoopa') {
+      name = 'hoopa-confined'
+    }
+    if (this.state.text === 'oricorio') {
+      name = 'oricorio-baile'
+    }
+    if (this.state.text === 'lycanroc') {
+      name = 'lycanroc-midnight'
+    }
+
     this.setState({
-      name: this.state.text,
+      name: name,
       imageArea: 'image-area-visible'
     })
   }
