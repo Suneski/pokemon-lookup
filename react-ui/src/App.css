@@ -24,7 +24,7 @@
   height: 150px;
 }
 
-.name-area {
+/*.name-area {
   font-family: 'Press Start 2P', cursive;
   font-size: 20px;
   position: absolute;
@@ -32,5 +32,17 @@
   width: 235px;
   top: 210px;
   left: 450px;
-  /*outline: 1px solid orange;*/
+}*/
+
+input {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #31FA03;
+  border: none;
+  font-size: 15px;
+  position: absolute;
+  text-align: center;
+  width: 235px;
+  top: 210px;
+  left: 450px;
+  outline: black 1px solid;
 }

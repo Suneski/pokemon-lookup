@@ -6,8 +6,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      name: 'bulbasaur',
-      displayName: 'BULBASAUR',
+      name: '',
+      displayName: '',
       text: '',
     }
   }
@@ -32,9 +32,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <input
-          placeholder="pokemon name"
-          onKeyUp={(evt) => this.pokemonText(evt)}/>
+
         <button
           onClick={() => this.pokemonSearch()}>
           SUBMIT
@@ -45,7 +43,9 @@ class App extends Component {
               name={this.state.name} />
           </div>
           <div className="name-area">
-            {this.state.displayName}
+            <input
+              placeholder="pokemon name"
+              onKeyUp={(evt) => this.pokemonText(evt)}/>
           </div>
         </div>
         <p>***not all pokemon available***</p>
