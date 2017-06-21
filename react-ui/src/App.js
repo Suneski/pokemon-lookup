@@ -7,8 +7,8 @@ class App extends Component {
     super();
     this.state = {
       name: '',
-      displayName: '',
       text: '',
+      imageArea: 'image-area-invisible'
     }
   }
 
@@ -17,35 +17,48 @@ class App extends Component {
     this.setState({
       text: evt.target.value,
     })
+    if (evt.keyCode === 13) {
+      this.pokemonSearch();
+    }
   }
 
   pokemonSearch() {
-    let displayName = this.state.text.toUpperCase();
     this.setState({
       name: this.state.text,
-      displayName: displayName,
+      imageArea: 'image-area-visible'
     })
   }
 
-
+  clearSearch() {
+    this.setState({
+      name: '',
+      imageArea: 'image-area-invisible'
+    })
+  }
 
   render() {
     return (
       <div className="App">
-
-        <button
-          onClick={() => this.pokemonSearch()}>
-          SUBMIT
-        </button>
         <div className="pokedex">
-          <div className="image-area">
+          <div className={this.state.imageArea}>
             <Pokemon
-              name={this.state.name} />
+              name={this.state.name}
+              id="pkmn" />
           </div>
           <div className="name-area">
             <input
-              placeholder="pokemon name"
+              placeholder="type name here"
               onKeyUp={(evt) => this.pokemonText(evt)}/>
+          </div>
+          <div
+            className="submit"
+            onClick={() => this.pokemonSearch()}>
+            <a>SEARCH</a>
+          </div>
+          <div
+            className="clear"
+            onClick={() => this.clearSearch()}>
+            <a>CLEAR</a>
           </div>
         </div>
         <p>***not all pokemon available***</p>
