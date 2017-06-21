@@ -8,6 +8,9 @@ class App extends Component {
     this.state = {
       name: '',
       text: '',
+      alt: 'alt-invisible',
+      form: '',
+      formVis: 'form-invisible',
       imageArea: 'image-area-invisible'
     }
   }
@@ -24,42 +27,66 @@ class App extends Component {
 
   pokemonSearch() {
     let name = this.state.text;
+
+    this.setState({
+      alt: 'alt-visible',
+      formVis: 'form-visible',
+    })
+
     if (this.state.text === 'deoxys') {
       name = 'deoxys-normal'
     }
-    if (this.state.text === 'giratina') {
-      name = 'giratina-altered'
+    else if (this.state.text === 'giratina') {
+      name = 'giratina-altered';
+      this.setState({
+        form: 'ALTERED'
+      })
     }
-    if (this.state.text === 'shaymin') {
+    else if (this.state.text === 'shaymin') {
       name = 'shaymin-land'
     }
-    if (this.state.text === 'darmanitan') {
+    else if (this.state.text === 'darmanitan') {
       name = 'darmanitan-standard'
     }
-    if (this.state.text === 'meloetta') {
+    else if (this.state.text === 'meloetta') {
       name = 'meloetta-aria'
     }
-    if (this.state.text === 'hoopa') {
+    else if (this.state.text === 'hoopa') {
       name = 'hoopa-confined'
     }
-    if (this.state.text === 'oricorio') {
+    else if (this.state.text === 'oricorio') {
       name = 'oricorio-baile'
     }
-    if (this.state.text === 'lycanroc') {
+    else if (this.state.text === 'lycanroc') {
       name = 'lycanroc-midnight'
+    }
+    else {
+      this.setState({
+        alt: 'alt-invisible',
+        formVis: 'form-invisible',
+      })
     }
 
     this.setState({
       name: name,
-      imageArea: 'image-area-visible'
+      imageArea: 'image-area-visible',
     })
   }
 
-  clearSearch() {
-    this.setState({
-      name: '',
-      imageArea: 'image-area-invisible'
-    })
+  altImage() {
+    // GIRATINA
+    if (this.state.name === 'giratina-altered') {
+      this.setState({
+        name: 'giratina-origin',
+        form: 'ORIGIN'
+      })
+    }
+    else if (this.state.name === 'giratina-origin') {
+      this.setState({
+        name: 'giratina-altered',
+        form: 'ALTERED'
+      })
+    }
   }
 
   render() {
@@ -79,12 +106,17 @@ class App extends Component {
           <div
             className="submit"
             onClick={() => this.pokemonSearch()}>
-            <a>SEARCH</a>
+            SEARCH
           </div>
           <div
-            className="clear"
-            onClick={() => this.clearSearch()}>
-            <a>CLEAR</a>
+            className={this.state.formVis}>
+            <p>FORM:</p>
+            <p>{this.state.form}</p>
+          </div>
+          <div
+            className={this.state.alt}
+            onClick={() => this.altImage()}>
+            <a>ALT</a>
           </div>
         </div>
         <p>***not all pokemon available***</p>
