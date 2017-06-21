@@ -24,6 +24,8 @@ class App extends Component {
     })
   }
 
+
+
   render() {
     return (
       <div className="App">
@@ -35,9 +37,10 @@ class App extends Component {
           SUBMIT
         </button>
         <div className="pokedex">
-          <Pokemon
-            className="pokemon-img"
-            name={this.state.name} />
+          <div className="image-area">
+            <Pokemon
+              name={this.state.name} />
+          </div>
         </div>
         <p>***not all pokemon available***</p>
       </div>

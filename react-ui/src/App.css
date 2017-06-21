@@ -5,9 +5,19 @@
   height: 541px;
 }
 
-.pokemon {
+.image-area {
   position: absolute;
-  top: 170px;
-  left: 80px;
+  /*outline: 1px solid orange;*/
+  top: 163px;
+  left: 60px;
+  height: 160px;
+  width: 250px;
+}
+
+.pokemon {
+  /*outline: 1px solid orange;*/
+  display: block;
+  margin: 0 auto;
+  width: auto;
   height: 150px;
 }
