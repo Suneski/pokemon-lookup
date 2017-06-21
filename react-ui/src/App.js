@@ -7,6 +7,7 @@ class App extends Component {
     super();
     this.state = {
       name: 'bulbasaur',
+      displayName: 'BULBASAUR',
       text: '',
     }
   }
@@ -19,8 +20,10 @@ class App extends Component {
   }
 
   pokemonSearch() {
+    let displayName = this.state.text.toUpperCase();
     this.setState({
       name: this.state.text,
+      displayName: displayName,
     })
   }
 
@@ -40,6 +43,9 @@ class App extends Component {
           <div className="image-area">
             <Pokemon
               name={this.state.name} />
+          </div>
+          <div className="name-area">
+            {this.state.displayName}
           </div>
         </div>
         <p>***not all pokemon available***</p>
